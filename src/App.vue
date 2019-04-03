@@ -64,7 +64,10 @@
         ref = firebase.firestore().collection('items').doc(this.items[index - 1].key);
         batch.update(ref, {orderIndex: index});
         await batch.commit()
-        await this.getItems();
+        let a = this.items[index - 1];
+        let b = this.items[index];
+        this.items.splice(index - 1, 2, b, a)
+        // await this.getItems();
       },
       async moveRight(key, index) {
         let batch = firebase.firestore().batch()
@@ -73,7 +76,10 @@
         ref = firebase.firestore().collection('items').doc(this.items[index + 1].key);
         batch.update(ref, {orderIndex: index});
         await batch.commit()
-        await this.getItems();
+        let a = this.items[index];
+        let b = this.items[index + 1];
+        this.items.splice(index, 2, b, a)
+        // await this.getItems();
       }
     },
     async created() {
