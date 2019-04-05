@@ -18,13 +18,25 @@
     >
     </div>
     <span
-      v-if="item.orderIndex"
+      v-if="item.orderIndex && $store.state.editShit"
       style="background: white; position: absolute; top: 4px; left: 38px;"
     >
       {{ item.orderIndex }}
     </span>
-    <button style="position: absolute; top: 4px; left: 4px;" @click="$emit('move-left')">L</button>
-    <button style="position: absolute; top: 4px; right: 4px;" @click="$emit('move-right')">R</button>
+    <button
+      v-if="$store.state.editShit"
+      style="position: absolute; top: 4px; left: 4px;"
+      @click="$emit('move-left')"
+    >
+      L
+    </button>
+    <button
+      v-if="$store.state.editShit"
+      style="position: absolute; top: 4px; right: 4px;"
+      @click="$emit('move-right')"
+    >
+      R
+    </button>
     <div
       class="hoverMenu"
       v-if="itemHover || menuHover"

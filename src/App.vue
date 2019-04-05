@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <div style="display: flex; width: 100%; justify-content: center;">
+    <div style="position: fixed; bottom: 8px; right: 8px;">
+      <button @click="$store.commit('toggleShit')">Toggle Shit</button>
+    </div>
+    <div v-if="$store.state.editShit" style="display: flex; width: 100%; justify-content: center;">
       <div style="width: 300px; display: flex; flex-direction: column;">
         <input v-model="newItem.name" placeholder="name"/>
         <textarea v-model="newItem.description" placeholder="description" rows="5"/>
