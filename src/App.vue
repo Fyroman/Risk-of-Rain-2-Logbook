@@ -110,6 +110,10 @@
     height: 100%;
   }
 
+  body {
+    background: midnightblue;
+  }
+
   .itemGrid {
     display: flex;
     flex-wrap: wrap;
