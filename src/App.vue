@@ -18,6 +18,7 @@
         :item="item"
         @move-left="moveLeft(item.key, index)"
         @move-right="moveRight(item.key, index)"
+        @updateItem="updateItem($event, index)"
       />
     </div>
   </div>
@@ -83,7 +84,10 @@
         let b = this.items[index + 1];
         this.items.splice(index, 2, b, a)
         // await this.getItems();
-      }
+      },
+      updateItem(item, index) {
+        this.items.splice(index, 1, item);
+      },
     },
     async created() {
       this.getItems();
