@@ -198,7 +198,7 @@
   }
 
   .shortDescription {
-    font-size: 12px;
+    font-size: 10px;
     width: 81px;
     background: black;
     height: calc(100% - 81px);
